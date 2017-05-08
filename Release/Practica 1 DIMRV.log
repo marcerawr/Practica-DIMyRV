@@ -1,0 +1,67 @@
+﻿  prac02_v02.cpp
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(Sound.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(Sound.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundStream.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundStream.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(AlResource.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(AlResource.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(InputSoundFile.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(InputSoundFile.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(OutputSoundFile.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(OutputSoundFile.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileReaderOgg.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileReaderOgg.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileReaderWav.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileReaderWav.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-graphics-s-d.lib(RenderStates.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-graphics-s-d.lib(RenderStates.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-graphics-s-d.lib(Transform.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-graphics-s-d.lib(Transform.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-system-s-d.lib(Err.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-system-s-d.lib(Err.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-system-s-d.lib(Thread.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-system-s-d.lib(Thread.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-system-s-d.lib(FileInputStream.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-system-s-d.lib(FileInputStream.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-system-s-d.lib(MemoryInputStream.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-system-s-d.lib(MemoryInputStream.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+sfml-system-s-d.lib(ThreadImpl.cpp.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in prac02_v02.obj
+sfml-system-s-d.lib(ThreadImpl.cpp.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in prac02_v02.obj
+LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+C:\Users\marce\Desktop\practica\Practica 1 DIMRV\Release\Practica 1 DIMRV.exe : fatal error LNK1120: 2 unresolved externals

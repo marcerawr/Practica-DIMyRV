@@ -1,0 +1,9 @@
+﻿  prac02_v02.cpp
+d:\users\marce\desktop\practica\practica 1 dimrv\prac02_v02.cpp(105): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\users\marce\desktop\practica\practica 1 dimrv\prac02_v02.cpp(109): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\marce\desktop\practica\practica 1 dimrv\prac02_v02.cpp(116): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\marce\desktop\practica\practica 1 dimrv\prac02_v02.cpp(117): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\marce\desktop\practica\practica 1 dimrv\prac02_v02.cpp(83): warning C4715: 'DibujaCubo': not all control paths return a value
+d:\users\marce\desktop\practica\practica 1 dimrv\prac02_v02.cpp(181): warning C4715: 'dibujaEsfera': not all control paths return a value
+  Practica 1 DIMRV.vcxproj -> D:\Users\marce\Desktop\practica\Practica 1 DIMRV\Debug\Practica 1 DIMRV.exe
+  Practica 1 DIMRV.vcxproj -> D:\Users\marce\Desktop\practica\Practica 1 DIMRV\Debug\Practica 1 DIMRV.pdb (Full PDB)
