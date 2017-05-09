@@ -3,9 +3,14 @@
 #include <SFML/Audio.hpp>
 //#include <SFML/Audio/Sound.hpp>
 
+float movcubox = 0.0f;
+float movcubey = 0.0f;
+float movespherex = 0.0f;
+float movespherey = 0.0f;
+
 int DibujaCubo()
 {
-	GLuint texture = 0;
+	/*GLuint texture = 0;
 	{
 		sf::Image image;
 		if (!image.loadFromFile("resources/blue_marble.jpg"))
@@ -15,10 +20,10 @@ int DibujaCubo()
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	}
+	}*/
 	// Bind the texture
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texture);
+	//glEnable(GL_TEXTURE_2D);
+	//glBindTexture(GL_TEXTURE_2D, texture);
 
 	//Definición de un cubo (3D = 6 caras hechas por 2 triángulos cada uno compuesto de 3 vertices)
 	//Arreglo de vértices y coordenadas de texturizado de un cubo:
@@ -72,13 +77,13 @@ int DibujaCubo()
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 5 * sizeof(GLfloat), cube); //Ubicación de las coordenadas de los vértices de la constante cube
-	glTexCoordPointer(2, GL_FLOAT, 5 * sizeof(GLfloat), cube + 3); //Ubicación de las coordenadas en la constante cube
+	//glTexCoordPointer(2, GL_FLOAT, 5 * sizeof(GLfloat), cube + 3); //Ubicación de las coordenadas en la constante cube
 
-																   /*															   // Disable normal and color vertex components
-																   glDisableClientState(GL_NORMAL_ARRAY);
-																   glDisableClientState(GL_COLOR_ARRAY);
-																   */
-											   // Draw the cube
+					  /*   // Disable normal and color vertex components
+						   glDisableClientState(GL_NORMAL_ARRAY);
+						   glDisableClientState(GL_COLOR_ARRAY);
+												   */
+								   // Draw the cube
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
@@ -177,13 +182,14 @@ int dibujaEsfera()
 			glEnd();
 		}
 	}
-	glTranslatef(40, 0, 0);
 }
+
 
 
 
 int main()
 {
+	
 	// **** Buffer de profundidad ****
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 24;
@@ -434,7 +440,41 @@ int main()
 			{
 				fondo = background;
 			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)))
+			{
+				movcubey = movcubey + 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
+			{
+				movcubey = movcubey - 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
+			{
+				movcubox = movcubox - 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)))
+			{
+				movcubox = movcubox + 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A)))
+			{
+				movespherex = movespherex - 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::D)))
+			{
+				movespherex = movespherex + 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W)))
+			{
+				movespherey = movespherey + 2.0f;
+			}
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::S)))
+			{
+				movespherey = movespherey - 2.0f;
+			}
+
 		}
+
 
 		// Draw the background
 		window.pushGLStates();
@@ -444,40 +484,65 @@ int main()
 		//window.draw(caja);
 		window.popGLStates();
 
+		window.pushGLStates();
+		glTranslatef(50, 0, 0);
+		DibujaCubo();
+		window.popGLStates();
 
+		window.pushGLStates();
+		glTranslatef(0, 100, 0);
+		dibujaEsfera();
+		window.popGLStates();
 
 		// Clear the depth buffer
 		glClear(GL_DEPTH_BUFFER_BIT);
 
 		glPushMatrix();
 			// We get the position of the mouse cursor, so that we can move the box accordingly
-			float x = sf::Mouse::getPosition(window).x * 200.f / window.getSize().x - 100.f;
-			float y = -sf::Mouse::getPosition(window).y * 200.f / window.getSize().y + 100.f;
+			//float x = sf::Mouse::getPosition(window).x * 200.f / window.getSize().x - 100.f;
+			//float y = -sf::Mouse::getPosition(window).y * 200.f / window.getSize().y + 100.f;
+
+			//Salvamos las coordenadas.
+		//	float x1 = x;
+	//			printf("x = %f  - y = %d ", x1, y1); //Ver las coordenadas.
+
+	
 
 			// Apply some transformations
 			glMatrixMode(GL_MODELVIEW);
 			glLoadIdentity();
-			glTranslatef(x, y, -100.f);	
+			glTranslatef(movcubox, movcubey, -100.f);	
+
 			// Draw the cube
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		glPopMatrix();
 
+
 		glPushMatrix();
-		glTranslatef(50, 0, 0);
+		glTranslatef(movespherex, movespherey, 0);
+		dibujaEsfera();
+		glPopMatrix();
+
+
+		glPushMatrix();
+		glTranslatef(90, -40, 0);
 		DibujaCubo();
 		glPopMatrix();
 
 		glPushMatrix();
-		glTranslatef(0, 100, 0);
+		glTranslatef(-80, 55, 0);
 		dibujaEsfera();
 		glPopMatrix();
+
+
 
 		// Draw some text on top of our OpenGL object
 		window.pushGLStates();
 		window.draw(text);
 		window.popGLStates();
 
-		
+
+				
 		// Finally, display the rendered frame on screen
 		window.display();
 	}
