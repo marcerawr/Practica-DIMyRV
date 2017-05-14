@@ -8,25 +8,9 @@ float movcubey = 0.0f;
 float movespherex = 0.0f;
 float movespherey = 0.0f;
 
-int DibujaCubo()
+void DibujaCubo()
 {
-	/*GLuint texture = 0;
-	{
-		sf::Image image;
-		if (!image.loadFromFile("resources/blue_marble.jpg"))
-			return EXIT_FAILURE;
-		glGenTextures(1, &texture);
-		glBindTexture(GL_TEXTURE_2D, texture);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	}*/
-	// Bind the texture
-	//glEnable(GL_TEXTURE_2D);
-	//glBindTexture(GL_TEXTURE_2D, texture);
-
-	//Definición de un cubo (3D = 6 caras hechas por 2 triángulos cada uno compuesto de 3 vertices)
-	//Arreglo de vértices y coordenadas de texturizado de un cubo:
+	
 	static const GLfloat cube[] =
 	{
 		// positions    // texture coordinates
