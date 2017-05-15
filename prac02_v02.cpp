@@ -8,67 +8,47 @@ float movcubey = 0.0f;
 float movespherex = 0.0f;
 float movespherey = 0.0f;
 
-void DibujaCubo()
+void DibujaCubo(float x, float y, float z)
 {
-	
-	static const GLfloat cube[] =
+	GLuint texture = 0;
+
 	{
-		// positions    // texture coordinates
-		-20, -20, -20,  0, 0,
-		-20,  20, -20,  1, 0,
-		-20, -20,  20,  0, 1,
-		-20, -20,  20,  0, 1,
-		-20,  20, -20,  1, 0,
-		-20,  20,  20,  1, 1,
+		sf::Image image;
+		if (!image.loadFromFile("resources/blue_marble.jpg"))
+		glGenTextures(1, &texture);
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	}
 
-		20, -20, -20,  0, 0,
-		20,  20, -20,  1, 0,
-		20, -20,  20,  0, 1,
-		20, -20,  20,  0, 1,
-		20,  20, -20,  1, 0,
-		20,  20,  20,  1, 1,
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0.0f, 0.0f, 0.0f);
+	glTexCoord2f(1.0, 0.0); glVertex3f(x, 0.0f, 0.0f);
+	glTexCoord2f(1.0, 1.0); glVertex3f(x, y, 0.0f);
+	glTexCoord2f(0.0, 1.0); glVertex3f(0.0f, y, 0.0f);
+	glEnd();
+	
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0.0f, y, 0.0f);
+	glTexCoord2f(1.0, 0.0); glVertex3f(0.0f, y, -z);
+	glTexCoord2f(1.0, 1.0); glVertex3f(0.0f, 0.0f, -z);
+	glTexCoord2f(0.0, 1.0); glVertex3f(0.0f, 0.0f, 0.0f);
+	glEnd();
 
-		-20, -20, -20,  0, 0,
-		20, -20, -20,  1, 0,
-		-20, -20,  20,  0, 1,
-		-20, -20,  20,  0, 1,
-		20, -20, -20,  1, 0,
-		20, -20,  20,  1, 1,
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0.0f, 0.0f, -z);
+	glTexCoord2f(0.0, 1.0); glVertex3f(x, 0.0f, -z);
+	glTexCoord2f(1.0, 1.0); glVertex3f(x, y, -z);
+	glTexCoord2f(1.0, 0.0); glVertex3f(0.0f, y, -z);
+	glEnd();
 
-		-20,  20, -20,  0, 0,
-		20,  20, -20,  1, 0,
-		-20,  20,  20,  0, 1,
-		-20,  20,  20,  0, 1,
-		20,  20, -20,  1, 0,
-		20,  20,  20,  1, 1,
-
-		-20, -20, -20,  0, 0,
-		20, -20, -20,  1, 0,
-		-20,  20, -20,  0, 1,
-		-20,  20, -20,  0, 1,
-		20, -20, -20,  1, 0,
-		20,  20, -20,  1, 1,
-
-		-20, -20,  20,  0, 0,
-		20, -20,  20,  1, 0,
-		-20,  20,  20,  0, 1,
-		-20,  20,  20,  0, 1,
-		20, -20,  20,  1, 0,
-		20,  20,  20,  1, 1
-	};
-
-	// Enable position and texture coordinates vertex components
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glVertexPointer(3, GL_FLOAT, 5 * sizeof(GLfloat), cube); //Ubicación de las coordenadas de los vértices de la constante cube
-	//glTexCoordPointer(2, GL_FLOAT, 5 * sizeof(GLfloat), cube + 3); //Ubicación de las coordenadas en la constante cube
-
-					  /*   // Disable normal and color vertex components
-						   glDisableClientState(GL_NORMAL_ARRAY);
-						   glDisableClientState(GL_COLOR_ARRAY);
-												   */
-								   // Draw the cube
-	glDrawArrays(GL_TRIANGLES, 0, 36);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(x, y, 0.0f);
+	glTexCoord2f(1.0, 0.0); glVertex3f(x, y, -z);
+	glTexCoord2f(1.0, 1.0); glVertex3f(x, 0.0f, -z);
+	glTexCoord2f(0.0, 1.0); glVertex3f(x, 0.0f, 0.0f);
+	glEnd();
 }
 
 int dibujaEsfera()
@@ -169,7 +149,33 @@ int dibujaEsfera()
 }
 
 
+void AABB(float x, float y, float z) {
+	// variables default
+	float MinX = 65000.0;
+	float MaxX = -65000.0;
+	float MinY = 65000.0;
+	float MaxY = -65000.0;
+	float MinZ = 65000.0;
+	float MaxZ = -65000.0;
 
+	
+	//vertices de la caja
+	if (x < MinX)
+		MinX = x;
+	if (x > MaxX)
+		MaxX = x;
+	// Eje Y
+	if (y < MinY)
+		MinY = y;
+	if (y > MaxY)
+		MaxY = y;
+	// Eje Z
+	if (z < MinZ)
+		MinZ = z;
+	if (z > MaxZ)
+		MaxZ = z;
+
+}
 
 int main()
 {
@@ -469,11 +475,6 @@ int main()
 		window.popGLStates();
 
 		window.pushGLStates();
-		glTranslatef(50, 0, 0);
-		DibujaCubo();
-		window.popGLStates();
-
-		window.pushGLStates();
 		glTranslatef(0, 100, 0);
 		dibujaEsfera();
 		window.popGLStates();
@@ -496,9 +497,8 @@ int main()
 			glMatrixMode(GL_MODELVIEW);
 			glLoadIdentity();
 			glTranslatef(movcubox, movcubey, -100.f);	
-
-			// Draw the cube
-			glDrawArrays(GL_TRIANGLES, 0, 36);
+			DibujaCubo(50, 50, 25);
+			
 		glPopMatrix();
 
 
@@ -510,7 +510,7 @@ int main()
 
 		glPushMatrix();
 		glTranslatef(90, -40, 0);
-		DibujaCubo();
+		DibujaCubo(50,50,25);
 		glPopMatrix();
 
 		glPushMatrix();
