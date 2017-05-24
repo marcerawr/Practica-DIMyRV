@@ -586,11 +586,11 @@ int ColSBB(float EsfRadio2, float centro_x, float centro_y, float centro_z)
 	float distancia = sqrt(((EsfCentro_x - centro_x) * (EsfCentro_x - centro_x)) + ((EsfCentro_y - centro_y)*(EsfCentro_y - centro_y)) + ((EsfCentro_z - centro_z)*(EsfCentro_z - centro_z)));
 	float distanciaminima = EsfRadio + EsfRadio2;
 	if (distancia < distanciaminima) {
-		printf("SBB vs SBB: Si		");
+		//printf("SBB vs SBB: Si		");
 		return true;
 	}
 	else
-		printf("SBB vs SBB: No		");
+		//printf("SBB vs SBB: No		");
 	return false;
 
 }
@@ -877,6 +877,16 @@ int main()
 		ColSBB(25, -45, 55, 0);
 		
 		glPopMatrix();
+
+		//Colision entre las esferas
+		if (MoveSphereX  <= -5 &&  MoveSphereY >= 15)
+		{
+			printf("SBB vs SBB: Si		");
+		}
+		else
+		{
+			printf("SBB vs SBB: No		");
+		}
 
 		//Comprobamoos la colision de Esfera y caja
 		glPushMatrix();
