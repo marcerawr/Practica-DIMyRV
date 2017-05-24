@@ -396,13 +396,13 @@ int ColAABB(float obj1_max_x, float obj1_max_y, float obj1_max_z, float obj1_min
 
 	if (colision_x == true && colision_y == true && colision_z == true)
 	{
-		printf("AABB vs AABB: Si hay colisión\n");
+		printf("AABB vs AABB: Si \t");
 
 		return true;
 	}
 	else
 	{
-		printf("AABB vs AABB: No hay colisión\n");
+		printf("AABB vs AABB: No \t");
 
 		return false;
 	}
@@ -414,39 +414,6 @@ int ColEsferaAABB(float AABBmax_x, float AABBmax_y, float AABBmax_z, float AABBm
 
 	float d = 0, s = 0;
 
-	//dibujaCubo(AABBmax_x, AABBmax_y, AABBmax_z, AABBmin_x, AABBmin_y, AABBmin_z);
-
-	///calculo esfera////
-
-	float x[2][30];
-	float y[2][30];
-	float z[2][30];
-	x[0][0] = 0;
-	y[0][0] = 0;
-	z[0][0] = 0;
-	x[0][1] = 100;
-	y[0][1] = 0;
-	z[0][1] = 200;
-	x[0][2] = 200;
-	y[0][2] = 0;
-	z[0][2] = 0;
-	x[0][3] = 100;
-	y[0][3] = 200;
-	z[0][3] = 100;
-	x[1][0] = 0;
-	y[1][0] = 0;
-	z[1][0] = 0;
-	x[1][1] = 100;
-	y[1][1] = 0;
-	z[1][1] = 200;
-	x[1][2] = 200;
-	y[1][2] = 0;
-	z[1][2] = 0;
-	x[1][3] = 100;
-	y[1][3] = 200;
-	z[1][3] = 100;
-
-
 	float DistanciaM = 0;
 	float temp;
 	float radio;
@@ -456,13 +423,14 @@ int ColEsferaAABB(float AABBmax_x, float AABBmax_y, float AABBmax_z, float AABBm
 	float centroz[] = { 0, 0 };
 
 	float EsfRadio, EsfCentro_x, EsfCentro_y, EsfCentro_z;
-
+	
 	for (i = 0; i < numeroV; i++)
 	{
-		centrox[0] += x[0][i];
-		centroy[0] += y[0][i];
-		centroz[0] += z[0][i];
+		centrox[0] += VertexSBB[i][0];
+		centroy[0] += VertexSBB[i][1];
+		centroz[0] += VertexSBB[i][2];
 	}
+
 	centrox[0] /= numeroV;
 	centroy[0] /= numeroV;
 	centroz[0] /= numeroV;
@@ -470,29 +438,23 @@ int ColEsferaAABB(float AABBmax_x, float AABBmax_y, float AABBmax_z, float AABBm
 
 	for (i = 0; i < numeroV; i++)
 	{
-		temp = sqrt((x[0][i] - centrox[0])*(x[0][i] - centrox[0]) + (y[0][i] - centroy[0])*(y[0][i] - centroy[0]) + (z[0][i] - centroz[0])*(z[0][i] - centroz[0]));
+		temp = sqrt((VertexSBB[i][0] - centrox[0])*(VertexSBB[i][0] - centrox[0]) + (VertexSBB[i][1] - centroy[0])*(VertexSBB[i][1] - centroy[0]) + (VertexSBB[i][2] - centroz[0])*(VertexSBB[i][2] - centroz[0]));
+
 		if (DistanciaM < temp)
 		{
 			DistanciaM = temp;
 		}
 	}
 	radio = DistanciaM;
-	EsfRadio = radio / 4;
+	EsfRadio = radio;
 
-	EsfCentro_x = centrox[0];
-	EsfCentro_y = centroy[0]; //+ mov_esfera;
+	EsfCentro_x = centrox[0]+MoveSphereX;
+	EsfCentro_y = centroy[0]+MoveSphereY; 
 	EsfCentro_z = centroz[0];
 
-	///calculo esfera
-
-	glPushMatrix();
-	//glTranslatef(EsfCentro_x, EsfCentro_y, EsfCentro_z);
-	dibujaEsfera(EsfRadio, 10, 10);
-	glPopMatrix();
-
 	// Comprobamos si el centro de la esfera está dentro del AABB
-	if (EsfCentro_x > AABBmin_x && EsfCentro_x < AABBmax_x) {
-		if (EsfCentro_y > AABBmin_y && EsfCentro_y < AABBmax_y) {
+	if (EsfCentro_x > AABBmin_x+MoveCubeX && EsfCentro_x < AABBmax_x+MoveCubeX+25) {
+		if (EsfCentro_y > AABBmin_y+MoveCubeY && EsfCentro_y < AABBmax_y+MoveCubeY+25) {
 			if (EsfCentro_z > AABBmin_z && EsfCentro_z < AABBmax_z) {
 				return true;
 			}
@@ -500,21 +462,21 @@ int ColEsferaAABB(float AABBmax_x, float AABBmax_y, float AABBmax_z, float AABBm
 	}
 
 	// Comprobamos si la esfera y el AABB se intersectan
-	if (EsfCentro_x < AABBmin_x) {
-		s = EsfCentro_x - AABBmin_x;
+	if (EsfCentro_x < AABBmin_x+MoveCubeX) {
+		s = EsfCentro_x - AABBmin_x+MoveCubeX;
 		d += s * s;
 	}
-	else if (EsfCentro_x > AABBmax_x) {
-		s = EsfCentro_x - AABBmax_x;
+	else if (EsfCentro_x > AABBmax_x+MoveCubeX+50) {
+		s = EsfCentro_x - AABBmax_x+MoveCubeX+50;
 		d += s * s;
 	}
 
-	if (EsfCentro_y < AABBmin_y) {
-		s = EsfCentro_y - AABBmin_y;
+	if (EsfCentro_y < AABBmin_y+MoveCubeY-15) {
+		s = EsfCentro_y - AABBmin_y+MoveCubeY-15;
 		d += s * s;
 	}
-	else if (EsfCentro_y > AABBmax_y) {
-		s = EsfCentro_y - AABBmax_y;
+	else if (EsfCentro_y > AABBmax_y+MoveCubeY+28) {
+		s = EsfCentro_y - AABBmax_y+MoveCubeY+28;
 		d += s * s;
 	}
 
@@ -528,12 +490,10 @@ int ColEsferaAABB(float AABBmax_x, float AABBmax_y, float AABBmax_z, float AABBm
 	}
 
 	if (d <= EsfRadio * EsfRadio) {
-		printf("SBB vs AABB: Si hay colisión\n");
 		return true;
 	}
 	else
 	{
-		printf("SBB vs AABB: No hay colisión \n");
 		return false;
 	}
 }
@@ -542,10 +502,10 @@ int ColSBB(float EsfRadio2, float centro_x, float centro_y, float centro_z)
 {
 
 	float d = 0, s = 0;
-	glPushMatrix();
+	/*glPushMatrix();
 	glTranslatef(centro_x, centro_y, centro_z);
 	dibujaEsfera(25, 10, 10);
-	glPopMatrix();
+	glPopMatrix();*/
 
 	///calculo esfera////
 
@@ -618,19 +578,19 @@ int ColSBB(float EsfRadio2, float centro_x, float centro_y, float centro_z)
 
 	glPushMatrix();
 	//glTranslatef(EsfCentro_x, EsfCentro_y, EsfCentro_z);
-	glTranslatef(MoveSphereX, MoveSphereY, 0);
-	dibujaEsfera(EsfRadio, 10, 10);
+	//glTranslatef(MoveSphereX, MoveSphereY, 0);
+	//dibujaEsfera(EsfRadio, 10, 10);
 	glPopMatrix();
 
 
 	float distancia = sqrt(((EsfCentro_x - centro_x) * (EsfCentro_x - centro_x)) + ((EsfCentro_y - centro_y)*(EsfCentro_y - centro_y)) + ((EsfCentro_z - centro_z)*(EsfCentro_z - centro_z)));
 	float distanciaminima = EsfRadio + EsfRadio2;
 	if (distancia < distanciaminima) {
-		printf("SBB vs SBB: Si hay colisión \n");
+		printf("SBB vs SBB: Si		");
 		return true;
 	}
 	else
-		printf("SBB vs SBB: No hay colisión \n");
+		printf("SBB vs SBB: No		");
 	return false;
 
 }
@@ -878,11 +838,6 @@ int main()
 		//window.draw(caja);
 		window.popGLStates();
 
-		window.pushGLStates();
-		glTranslatef(0, 100, 0);
-		dibujaEsfera(25, 25, 25);
-		window.popGLStates();
-
 		// Clear the depth buffer
 		glClear(GL_DEPTH_BUFFER_BIT);
 
@@ -914,15 +869,24 @@ int main()
 
 
 		glPushMatrix();
-		/*glPushMatrix();
-		glTranslatef(MoveSphereX-35, MoveSphereY, 0);
+		glPushMatrix();
+		glColor3f(1, 1, 1);
+		glTranslatef(MoveSphereX-30, MoveSphereY, 0);
 		dibujaEsfera(25,10,10);
-		glPopMatrix();*/
+		glPopMatrix();
 		ColSBB(25, -45, 55, 0);
-		//ColEsferaAABB(85,2,25,60,-23,0);
+		
 		glPopMatrix();
 
-
+		//Comprobamoos la colision de Esfera y caja
+		glPushMatrix();
+		if (ColEsferaAABB(25, 25, 25, 0, 0, 0) == true) {
+			printf("SBB vs AABB: Si\t \n");
+		}
+		else {
+			printf("SBB vs AABB: No\t \n");
+		}
+		glPopMatrix();
 
 
 
